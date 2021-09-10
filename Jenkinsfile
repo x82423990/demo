@@ -28,7 +28,7 @@ pipeline {
             agent {
                 dockerfile {
                     customWorkspace '/var/jenkins_home/workspace/demo'
-                    label 'my-defined-label'
+                    // label 'my-defined-label'
                 }
             }
             steps {
