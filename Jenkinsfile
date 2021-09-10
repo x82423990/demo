@@ -23,13 +23,17 @@ pipeline {
             }
         }
         stage('Building image') {
-            agent { dockerfile true }
+            agent {
+                dockerfile {
+                    customWorkspace '/var/jenkins_home/workspace/demo'
+            } }
             steps {
+                echo $projectName
                 script {
                     dockerImage = docker.build imagename
                 }
             }
-        }
+            }
         stage('Deploy Image') {
             steps {
                 // script {
@@ -42,5 +46,5 @@ pipeline {
                 echo "$BUILD_NUMBER"
             }
         }
+        }
     }
-}
