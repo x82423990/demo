@@ -30,10 +30,10 @@ pipeline {
                     customWorkspace '/var/jenkins_home/workspace/demo'
                     label 'my-defined-label'
                 }
-                steps {
+            }
+            steps {
                     sh 'echo $hostname'
                 }
-            }
         }
         stage('Deploy Image') {
             steps {
