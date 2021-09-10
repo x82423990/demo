@@ -3,12 +3,14 @@ pipeline {
     environment {
         imagename = 'aliyun/hacicenkins'
         registryCredential = 'yenigul-dockerhub'
-        dockerImage = ''
     }
-    agent {label 'master'}
+    agent {
+        node {
+            label 'master'
+            }
+    }
     stages {
         stage('Cloning Git') {
-            agent any
             steps {
                 git([url: 'https://github.com/x82423990/demo.git', branch: 'master'])
             }
