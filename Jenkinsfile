@@ -1,4 +1,3 @@
-// /* groovylint-disable-next-line CompileStatic */
 pipeline {
     environment {
         imagename = 'aliyun/hacicenkins'
@@ -30,7 +29,12 @@ pipeline {
         }
         stage('Deploy Image') {
             steps {
-                echo env.JOB_NAME
+                script{
+                script{
+                docker.withRegistry("https://" + registry, "ecr:eu-central-1:" + registryCredential) {
+                    dockerImage.push()
+                }
+                }
             }
         }
     }
