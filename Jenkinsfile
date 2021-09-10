@@ -1,14 +1,14 @@
 // /* groovylint-disable-next-line CompileStatic */
 pipeline {
-    environment {
-        imagename = 'aliyun/hacicenkins'
-        registryCredential = 'yenigul-dockerhub'
+    // environment {
+    //     imagename = 'aliyun/hacicenkins'
+    //     registryCredential = 'yenigul-dockerhub'
+    // }
+  agent {
+    node {
+      label 'master'
     }
-    agent {
-        node {
-            label 'master'
-            }
-    }
+  }
     stages {
         stage('Cloning Git') {
             steps {
