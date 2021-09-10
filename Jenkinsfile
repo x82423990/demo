@@ -51,8 +51,8 @@
 //         }
 //     }
 pipeline {
-    agent { dockerfile true }
     stages {
+        agent { dockerfile true }
         stage('Test') {
             steps {
                 sh 'node --version'
