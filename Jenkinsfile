@@ -31,7 +31,6 @@ pipeline {
                 }
             }
             steps {
-                echo $projectName
                 script {
                     dockerImage = docker.build imagename
                 }
