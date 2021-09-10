@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deploy Image') {
             steps {
-                echo "$BUILD_NUMBER"
+                echo env.JOB_NAME
             }
         }
     }
