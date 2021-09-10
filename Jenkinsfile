@@ -17,7 +17,7 @@ pipeline {
         }
         stage('mvn build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                sh '/usr/share/maven/bin/mvn -B -DskipTests clean package'
             }
         }
         stage('build image') {
