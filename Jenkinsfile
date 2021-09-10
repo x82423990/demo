@@ -59,9 +59,10 @@ pipeline {
     //     }
     // }
     stages {
-        stage("echo"){
-            agent{
-                docker
+        stage('echo') {
+            agent none
+            steps {
+                echo env.NODE_NAME
             }
         }
         stage('Test') {
