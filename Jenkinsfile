@@ -31,7 +31,6 @@ pipeline {
                 }
             }
             steps {
-                sh 'sleep 1500'
                 echo $projectName
                 script {
                     dockerImage = docker.build imagename
