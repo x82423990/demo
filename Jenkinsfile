@@ -26,9 +26,7 @@ pipeline {
         // }
         stage('Building image') {
             agent {
-                dockerfile {
-                    customWorkspace '/var/jenkins_home/workspace/demo'
-                }
+                dockerfile true
             }
             steps {
                 script {
