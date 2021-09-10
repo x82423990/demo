@@ -1,9 +1,10 @@
 // /* groovylint-disable-next-line CompileStatic */
 pipeline {
-    // environment {
-    //     imagename = 'aliyun/hacicenkins'
-    //     registryCredential = 'yenigul-dockerhub'
-    // }
+    environment {
+        imagename = 'aliyun/hacicenkins'
+        registryCredential = 'yenigul-dockerhub'
+        mvnHome = '/usr/local/apache-maven-3.8.2/bin'
+    }
   agent {
     node {
       label 'master'
@@ -17,7 +18,7 @@ pipeline {
         }
         stage('mvn build') {
             steps {
-                sh '/usr/share/maven/bin/mvn -B -DskipTests clean package'
+                sh '${mvnHome}/mvn -B -DskipTests clean package'
             }
         }
         stage('build image') {
