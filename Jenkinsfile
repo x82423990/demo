@@ -26,14 +26,16 @@ pipeline {
             agent {
                 dockerfile {
                     customWorkspace '/var/jenkins_home/workspace/demo'
-            } }
+                }
+            }
             steps {
+                sh "sleep 1500"
                 echo $projectName
                 script {
                     dockerImage = docker.build imagename
                 }
             }
-            }
+        }
         stage('Deploy Image') {
             steps {
                 // script {
