@@ -21,11 +21,10 @@ pipeline {
             }
         }
         stage('build image') {
-            agent {
-                sh 'docker build -t test .'
-            }
+
             steps {
                     sh 'echo $hostname'
+                    sh 'docker build -t test .'
                 }
         }
         stage('Deploy Image') {
