@@ -30,39 +30,8 @@ pipeline {
         }
         stage('Deploy Image') {
             steps {
-                // script {
-                //     /* groovylint-disable-next-line NestedBlockDepth */
-                //     docker.withRegistry( '', registryCredential ) {
-                //         dockerImage.push("$BUILD_NUMBER")
-                //         dockerImage.push('latest')
-                //     }
-                // }
                 echo "$BUILD_NUMBER"
             }
         }
     }
 }
-// pipeline {
-//     agent none
-//     // {
-//     //     docker {
-//     //         image 'maven:3.5.4-alpine'
-//     //         args '-v /root/.m2:/root/.m2'
-//     //     }
-//     // }
-//     stages {
-//         stage('echo') {
-//             agent none
-//             steps {
-//                 echo env.NODE_NAME
-//             }
-//         }
-//         stage('Test') {
-//             agent { dockerfile true }
-//             steps {
-//                 sh 'node --version'
-//                 sh 'svn --version'
-//             }
-//         }
-//     }
-// }
