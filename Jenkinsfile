@@ -51,10 +51,15 @@
 //         }
 //     }
 pipeline {
-    agent none
+    agent {
+        docker {
+            image 'maven:3.5.4-alpine'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
     stages {
-        agent { dockerfile true }
         stage('Test') {
+            agent { dockerfile true }
             steps {
                 sh 'node --version'
                 sh 'svn --version'
