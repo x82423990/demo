@@ -1,3 +1,4 @@
+/* groovylint-disable-next-line NglParseError */
 pipeline {
     environment {
         imagename = 'aliyun/hacicenkins'
@@ -25,7 +26,7 @@ pipeline {
             steps {
                     sh 'echo $hostname'
                     sh 'docker build -t test .'
-                }
+            }
         }
         stage('Deploy Image') {
             steps {
@@ -33,6 +34,7 @@ pipeline {
                 script{
                 docker.withRegistry("https://" + registry, "ecr:eu-central-1:" + registryCredential) {
                     dockerImage.push()
+                }
                 }
                 }
             }
